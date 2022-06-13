@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <input type="submit" class="btn btn-success btn-sm need-width" value="Mua ngay" name="buy">
-                <a href="./detail_file.php?id='.$row["id"].'" class="btn btn-outline-light btn-sm text-danger need-width" role="button">Chi tiết</a>
+                <a href="./detail_file.php?plugin_id='.$row["id"].'" class="btn btn-outline-light btn-sm text-danger need-width" role="button">Chi tiết</a>
                 </form>
             </div>
         ';
