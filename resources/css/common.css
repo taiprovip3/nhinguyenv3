@@ -1,0 +1,13 @@
+/* Header */
+#header-left, #header-right{
+    position: relative;
+}
+#header-left > div, #header-right > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hide{
+    display: none;
+}
