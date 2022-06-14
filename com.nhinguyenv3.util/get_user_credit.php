@@ -3,12 +3,12 @@
         include '../../com.nhinguyenv3.database/connectDB.php';
         $default = 0;
         $sql = "select credit from balances where username = '$username'";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($con, $sql);
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_array($result);
             $default = $row[0];
         }
-        $conn -> close();
+        $con -> close();
         return $default;
     }
 ?>

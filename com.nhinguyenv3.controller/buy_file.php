@@ -20,7 +20,7 @@
                     header('Location: ../resources/templates/shopfile.php?response=yourself');
                 } else{
                     $sql = "select credit from balances where username = '$username'";
-                    $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($con, $sql);
                     $row = mysqli_fetch_array($result);
                     $user_credit = $row[0];
                     if($user_credit < $price){//TH ko đủ credit
@@ -30,13 +30,13 @@
                         $file_name = $_POST['file_name'];
     
                         $query = "select * from user_files where buyer = '$username' and file_id = '$id'";
-                        $result = mysqli_query($conn,$query);
+                        $result = mysqli_query($con,$query);
                         if(mysqli_num_rows($result) <= 0){
                             $sql = "update balances set credit = credit - $price where username = '$username';";
                             $sql .= "update balances set credit = credit + $price where username = '$author';";
                             $sql .= "insert into user_files (file_name,download_link,buyer,file_id) values ('$file_name','$download_link','$username',$id);";
                             $sql .= "insert into logs (action,status,username) values ('bought file from $author','success', '$username')";
-                            if(mysqli_multi_query($conn, $sql)){
+                            if(mysqli_multi_query($con, $sql)){
                                 header('Location: ../resources/templates/shopfile.php?response=201');
                             } else{
                                 header('Location: ../resources/templates/shopfile.php?response=404');
@@ -48,6 +48,6 @@
                 }
             }
         }
-        $conn -> close();
+        $con -> close();
     }
 ?>

@@ -8,12 +8,12 @@
             $content = $_POST['content'];
             $username = $_SESSION['username'];
             $sql = "insert into comments (username, comment) values ('$username','$content')";
-            if(mysqli_query($conn,$sql)){
+            if(mysqli_query($con,$sql)){
                 header('Location: ../resources/templates/comment.php');
             } else{
                 header('Location: ../resources/templates/comment.php?response=404');
             }
-            $conn -> close();
+            $con -> close();
         } else{
             header('Location: ../resources/templates/comment.php?response=nolog');
         }

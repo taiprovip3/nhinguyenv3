@@ -1,7 +1,7 @@
 <?php
 include '../../com.nhinguyenv3.database/connectDB.php';
 $sql = "select * from files";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($con, $sql);
 $json = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 json_encode($json);
 $countrow = count($json);
@@ -34,5 +34,5 @@ for ($i = 0; $i < $countrow; $i++){
     </tr>
     ';
 }
-$conn -> close();
+$con -> close();
 ?>

@@ -29,7 +29,7 @@
             <div class="text-center">
                 <?php
                     if(isset($_SESSION['username'])){
-                        header('Location: /nhinguyenv3/index.php');
+                        header('Location: ../../index.php');
                     } else
                         echo '
                         <i class="far fa-user-circle fa-4x"></i><br>
@@ -83,7 +83,7 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 mt-5">
-            <form action="/nhinguyenv3/com.nhinguyenv3.controller/login.php" method="POST" style="display: inline;">
+            <form action="../../com.nhinguyenv3.controller/login.php" method="POST" style="display: inline;">
             <div class="form-floating mb-3 mt-3">
                 <input type="text" class="form-control" id="username" placeholder="Nhập vào Tên đăng nhập" name="username" required>
                 <label for="username">Tên đăng nhập <span class="text-danger">(*)</span></label>

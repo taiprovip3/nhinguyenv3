@@ -10,7 +10,7 @@
     function get_user_info($username){
         include '../../com.nhinguyenv3.database/connectDB.php';
         $sql = "select * from infos a join users b on a.username = b.username where a.username = '$username'";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
         $GLOBALS['id'] = $row["id"];
         $GLOBALS['email'] = $row["email"];
@@ -20,6 +20,6 @@
         $GLOBALS['phone_number'] = $row["phone_number"];
         $GLOBALS['age'] = $row["age"];
         $GLOBALS['sex'] = $row["sex"];
-        $conn -> close();
+        $con -> close();
     }
 ?>

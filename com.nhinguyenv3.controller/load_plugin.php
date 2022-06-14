@@ -1,7 +1,7 @@
 <?php
     include '../../com.nhinguyenv3.database/connectDB.php';
     $sql = "select * from files where type = 1 and censored = 1";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($con, $sql);
     $json = mysqli_fetch_all ($result, MYSQLI_ASSOC);
     json_encode($json);
     $countrow = count($json);
@@ -21,18 +21,22 @@
                 <input type="hidden" name="price" value="'.$row["price"].'" />
                 <input type="hidden" name="download_link" value="'.$row["download_link"].'" />
                 <input type="hidden" name="file_name" value="'.$row["name"].'" />
-                <p class="text-center">Name:<code>'.$row["name"].'</code>&emsp;author:<code>#'.$row["author"].'<br>Credit:</code>&emsp;<span class="badge bg-warning">$'.$row["price"].' <i class="fas fa-coins"></i></span></p>
+                <p class="text-center">'.$row["name"].'</code></p>
                 <img src="../img/background.png" alt="IMAGE" width="100%">
                 <div class="d-flex">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <p>Lượt tải: <b>'.$row["download_count"].'</b></p>
                         <p>Phiên bản gốc: <b>'.$row["version"].'</b></p>
                         <p>Dung lượng: <b>'.$row["size"].'</b> MB</p>
                         <p>Nén loại: <b>'.$row["compress_type"].'</b></p>
                         <p>Ngày phát hành: <b>'.$date.' '.$time.'</b></p>
                     </div>
-                    <div class="col-lg-6">
-                        <p>Mô tả: <b>'.$row["description"].'</b></p>
+                    <div class="col-lg-4 small">
+                        <p>Mô tả: '.$row["description"].'</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>Tác giả: #<b>'.$row["author"].'</b></p>
+                        <p>Giá bán: <b class="text-success">'.$row["price"].'</b>credit</p>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-success btn-sm need-width" value="Mua ngay" name="buy">
@@ -41,5 +45,5 @@
             </div>
         ';
     }
-    $conn -> close();
+    $con -> close();
 ?>

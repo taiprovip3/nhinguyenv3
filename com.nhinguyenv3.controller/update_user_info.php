@@ -12,13 +12,13 @@
         $age = trim($_POST['age']);
         $sex = trim($_POST['sex']);
 
-        $stmt = $conn -> prepare ("update infos set first_name = ?, last_name = ?, address = ?, phone_number = ?, age = ?, sex = ? where id = ?");
+        $stmt = $con -> prepare ("update infos set first_name = ?, last_name = ?, address = ?, phone_number = ?, age = ?, sex = ? where id = ?");
         $stmt -> bind_param("ssssiii", $first_name, $last_name,$address,$phone_number,$age,$sex,$id);
 
         header('Location: ../resources/templates/individual.php?response=update-info-success');
 
         $stmt -> execute();
         $stmt -> close();
-        $conn -> close();
+        $con -> close();
     }
 ?>

@@ -7,7 +7,7 @@ if(isset($_POST['register'])){
     $email = $_POST['email'];
 
     $query = "select * from users where username = '$username'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0){
         header('Location: ../resources/templates/register.php?response=409');
     } else{
@@ -18,12 +18,12 @@ if(isset($_POST['register'])){
         $sql .= "insert into infos (username) values ('$username');";
         $sql .= "insert into balances (username) values ('$username');";
         $sql .= "insert into logs (action, status, username) values ('Register account','verifying','$username')";
-        if(mysqli_multi_query($conn, $sql)){
+        if(mysqli_multi_query($con, $sql)){
             header('Location: ../resources/templates/register.php?response=201');
         } else{
             header('Location: ../resources/templates/register.php?response=404');
         }
     }
-    $conn -> close();
+    $con -> close();
 }
 ?>

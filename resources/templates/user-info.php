@@ -110,7 +110,7 @@
                     include '../../com.nhinguyenv3.database/connectDB.php';
                     $username = $_GET['username'];
                     $sql = "select * from users a join infos b on a.username = b.username where a.username = '$username'";
-                    $result = mysqli_query($conn,$sql);
+                    $result = mysqli_query($con,$sql);
                     if(mysqli_num_rows($result) > 0){
                         $row = mysqli_fetch_array($result);
                         $chucvu = "thành viên tạm thời";
@@ -150,7 +150,7 @@
                         </div>
                         ';
                     }
-                    $conn -> close();
+                    $con -> close();
                 } else{
                     echo '
                         <div class="col-lg-8 text-center text-danger mt-5 p-5">

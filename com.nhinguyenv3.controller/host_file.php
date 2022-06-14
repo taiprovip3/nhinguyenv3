@@ -14,7 +14,7 @@
             $description_f = $_POST['description_f'];
             $sql = "insert into files (name,price,version,size,compress_type,description,download_link,author,type) values ('$name_f',$price_f,'$version_f',$size_f,'$compressed_type_f','$description_f','$download_link_f','$username',$type_f);";
             $sql .= "insert into logs (action,status,username) values ('Đăng cai tệp loại $type_f','waiting for censor','$username')";
-            if(mysqli_multi_query($conn,$sql)){
+            if(mysqli_multi_query($con,$sql)){
                 header('Location: ../resources/templates/beaseller.php?response=201');
             } else{
                 header('Location: ../resources/templates/beaseller.php?response=404');
@@ -22,6 +22,6 @@
         } else{
             header('Location: ../resources/templates/beaseller.php?response=nolog');
         }
-        $conn -> close();
+        $con -> close();
     }
 ?>
