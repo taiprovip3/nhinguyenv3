@@ -113,5 +113,49 @@
         </div>
     </div>
 </div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title text-danger">Nhắc nhở</h4>&emsp;<i class="small">bấm [ESC] để tắt</i>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Xuất hiện deceptive
+        <br>
+        <img src="./resources/img/deceptive.PNG" alt="DECEPTIVE" width="25%" class="img-thumbnail">
+        <br>
+        Sau đó nhấp "Details"
+        <br>
+        <img src="./resources/img/deceptive_solution.PNG" alt="SOLUTION" width="25%" class="img-thumbnail">
+        <br>
+        chọn "visit this unsafe site."
+        <hr>
+        <i class="fas fa-exclamation-circle text-warning"></i> Cam kết website nhằm mục đích chia sẽ tài nguyên. Không hề có mục đích "PhiShing Attack". Deceptive này có thể do một sự nhầm lẫn nào đó. Chúng tôi đã report đến google safebrowsing. Mong bạn hãy yên tâm truy cập sử dụng.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đã hiểu</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+    $("#myModal").modal('show');
+    $(window).keyup(function(e){
+        if (e.key === "Escape") { // escape key maps to keycode `27`
+            $("#myModal").modal('hide');
+        }
+    });
+});
+</script>
 </body>
 </html>
