@@ -13,7 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ad778f42b3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/common.css?i=1">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/announcer.css">
     <link href="../img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
@@ -31,14 +32,14 @@
                     if(isset($_SESSION['username'])){
                         header('Location: ../../index.php');
                     } else
-                        echo '
+                    echo '
                         <i class="far fa-user-circle fa-4x"></i><br>
                         <ul class="nav nav-tabs">
-                            <li class="nav-item dropdown">
-                                <a href="" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown">Thành viên</a>
+                            <li class="nav-item dropdown small">
+                                <a href="#" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown">Tài Khoản</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Đăng nhập</a></li>
-                                    <li><a class="dropdown-item" href="./register.php">Đăng ký</a></li>
+                                    <li><a class="dropdown-item" href="./login.php">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="./register.php">Tạo tài khoản</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -56,7 +57,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./shopfile.php">Shop files</a></li>
                         <li><a class="dropdown-item" href="./shopplugin.php">Shop plugins</a></li>
-                        <li><a class="dropdown-item" href="./beaseller.php">Be a Seller</a></li>
+                        <li><a class="dropdown-item" href="./beaseller.php">Đăng tải</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -81,8 +82,8 @@
     </div>
     <!-- Login -->
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8 mt-5">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 mt-5">
             <form action="../../com.nhinguyenv3.controller/login.php" method="POST" style="display: inline;">
             <div class="form-floating mb-3 mt-3">
                 <input type="text" class="form-control" id="username" placeholder="Nhập vào Tên đăng nhập" name="username" required>
@@ -96,16 +97,9 @@
             </form>&emsp;Chưa có tài khoản?
             <a href="./register.php">Đăng ký</a>
         </div>
-        <div class="col-lg-2"></div>
+        <div class="col-lg-3"></div>
     </div>
 </div>
-<style>
-    #announcer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
 <div id="announcer">
     <?php
         if(isset($_GET['response'])){

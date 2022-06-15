@@ -13,7 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ad778f42b3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/common.css?i=1">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/announcer.css">
     <link href="../img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
@@ -28,9 +29,13 @@
         <div class="col-lg-2 bg-success text-white" id="header-right">
             <div class="text-center">
                 <?php
+                    $credit = 0;
                     if(isset($_SESSION['username'])){
+                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        $credit = get_user_credit($_SESSION['username']);
                         echo '
-                        <i class="fas fa-child fa-4x"></i><br>
+                        <a href="#" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
+                        <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
                         <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     } else
@@ -48,7 +53,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./shopfile.php">Shop files</a></li>
                         <li><a class="dropdown-item" href="./shopplugin.php">Shop plugins</a></li>
-                        <li><a class="dropdown-item" href="./beaseller.php">Be a Seller</a></li>
+                        <li><a class="dropdown-item" href="./beaseller.php">Đăng tải</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -72,27 +77,6 @@
         </div>
     </div>
     <!-- Shop plugin -->
-    <style>
-        #nav{
-            font-size: larger;
-        }
-        #nav > div:hover{
-            cursor: pointer;
-            background: blue;
-        }
-        #inv,#mbox,#his{
-            display: none;
-        }
-        #inv{
-            position: relative;
-        }
-        #inv > div{
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%); 
-        }
-    </style>
     <div class="row">
         <div class="col-lg-2 border" id="nav">
             <div class="bg-primary text-white p-1 rounded" id="nav-info"><b>Thông tin</b></div>
@@ -237,13 +221,6 @@
         </div>
     </div>
 </div>
-<style>
-    #announcer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
 <div id="announcer">
     <?php
         if(isset($_GET['response'])){
@@ -274,68 +251,7 @@
         }
     ?>
 </div>
-<script>
-$(document).ready(function(){
-    $("div[id='nav'] > div").click(function(){
-        var idOfObject = $(this).attr('id');
-        if(idOfObject == "nav-info"){
-            $("#nav-info").attr('class', 'bg-primary text-white p-1 rounded');
-            $("#nav-inv").attr('class', 'p-1 rounded');
-            $("#nav-mbox").attr('class', 'p-1 rounded');
-            $("#nav-his").attr('class', 'p-1 rounded');
-
-            $("#info").show();
-            $("div[id='inv']").hide();
-            $("#mbox").hide();
-            $("#his").hide();
-
-            $("a.disabled").text("Thông tin Cá Nhân");
-        }
-        if(idOfObject == "nav-inv"){
-            $("#nav-inv").attr('class', 'bg-primary text-white p-1 rounded');
-            $("#nav-info").attr('class', 'p-1 rounded');
-            $("#nav-mbox").attr('class', 'p-1 rounded');
-            $("#nav-his").attr('class', 'p-1 rounded');
-
-            $("#inv").show();
-            $("div[id='inv']").show();
-            $("#info").hide();
-            $("#mbox").hide();
-            $("#his").hide();
-            $("a.disabled").text("Túi Đồ");
-        }
-        if(idOfObject == "nav-mbox"){
-            $("#nav-mbox").attr('class', 'bg-primary text-white p-1 rounded');
-            $("#nav-info").attr('class', 'p-1 rounded');
-            $("#nav-inv").attr('class', 'p-1 rounded');
-            $("#nav-his").attr('class', 'p-1 rounded');
-
-            $("#mbox").show();
-            $("div[id='inv']").hide();
-            $("#info").hide();
-            $("#his").hide();
-
-            $("a.disabled").text("Hộp Thư");
-        }
-        if(idOfObject == "nav-his"){
-            $("#nav-his").attr('class', 'bg-primary text-white p-1 rounded');
-            $("#nav-info").attr('class', 'p-1 rounded');
-            $("#nav-mbox").attr('class', 'p-1 rounded');
-            $("#nav-inv").attr('class', 'p-1 rounded');
-
-            $("#his").show();
-            $("div[id='inv']").hide();
-            $("#mbox").hide();
-            $("#info").hide();
-
-            $("a.disabled").text("Lịch sử Hoạt động");
-        }
-    });
-});
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl);
-});
-</script>
+<script src="../js/individual.js"></script>
+<script src="../js/common.js"></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+#nav{
+    font-size: larger;
+}
+#nav > div:hover{
+    cursor: pointer;
+    background: blue;
+}
+#inv,#mbox,#his{
+    display: none;
+}
+#inv{
+    position: relative;
+}
+#inv > div{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%); 
+}

@@ -20,7 +20,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ad778f42b3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/common.css?i=1">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/announcer.css">
     <link href="../img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
@@ -35,24 +36,16 @@
         <div class="col-lg-2 bg-success text-white" id="header-right">
             <div class="text-center">
                 <?php
+                    $credit = 0;
                     if(isset($_SESSION['username'])){
+                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        $credit = get_user_credit($_SESSION['username']);
                         echo '
-                        <a href="./individual.php" class="text-reset"><i class="fas fa-child fa-4x"></i></a><br>
+                        <a href="./individual.php" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
+                        <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
                         <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
-                    } else
-                        echo '
-                        <i class="far fa-user-circle fa-4x"></i><br>
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item dropdown">
-                                <a href="" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown">Thành viên</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./login.php">Đăng nhập</a></li>
-                                    <li><a class="dropdown-item" href="./register.php">Đăng ký</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        ';
+                    }
                 ?>
             </div>
         </div>
@@ -66,7 +59,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./shopfile.php">Shop files</a></li>
                         <li><a class="dropdown-item" href="./shopplugin.php">Shop plugins</a></li>
-                        <li><a class="dropdown-item" href="./beaseller.php">Be a Seller</a></li>
+                        <li><a class="dropdown-item" href="./beaseller.php">Đăng tải</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -116,13 +109,6 @@
         </div>
     </div>
 </div>
-<style>
-    #announcer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
 <div id="announcer">
     <?php
         if(isset($_GET['response'])){

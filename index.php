@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ad778f42b3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./resources/css/common.css">
+    <link rel="stylesheet" href="./resources/css/common.css?i=1">
     <link href="./resources/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
@@ -28,20 +28,24 @@
         <div class="col-lg-2 bg-success text-white" id="header-right">
             <div class="text-center">
                 <?php
+                    $credit = 0;
                     if(isset($_SESSION['username'])){
+                        include './com.nhinguyenv3.util/get_user_credit.php';
+                        $credit = get_user_credit_by_index($_SESSION['username']);
                         echo '
-                        <a href="./resources/templates/individual.php" class="text-reset"><i class="fas fa-child fa-4x"></i></a><br>
+                        <a href="./resources/templates/individual.php" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
+                        <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
                         <a href="./com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     } else
                         echo '
                         <i class="far fa-user-circle fa-4x"></i><br>
                         <ul class="nav nav-tabs">
-                            <li class="nav-item dropdown">
-                                <a href="" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown">Thành viên</a>
+                            <li class="nav-item dropdown small">
+                                <a href="#" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown">Tài Khoản</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="./resources/templates/login.php">Đăng nhập</a></li>
-                                    <li><a class="dropdown-item" href="./resources/templates/register.php">Đăng ký</a></li>
+                                    <li><a class="dropdown-item" href="./resources/templates/register.php">Tạo tài khoản</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -59,7 +63,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./resources/templates/shopfile.php">Shop files</a></li>
                         <li><a class="dropdown-item" href="./resources/templates/shopplugin.php">Shop plugins</a></li>
-                        <li><a class="dropdown-item" href="./resources/templates/beaseller.php">Đăng cai</a></li>
+                        <li><a class="dropdown-item" href="./resources/templates/beaseller.php">Đăng tải</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -81,9 +85,9 @@
     </div>
     <!-- Demo -->
     <div class="row">
-        <div class="col-lg-12 container">
+        <div class="col-lg-12 container p-5">
             <div class="row">
-                <div class="col-lg-12 mt-5">
+                <div class="col-lg-12">
                     <code><i class="fab fa-wikipedia-w"></i>. <b>Minecraft Wikipedia</b>&emsp;<span class="text-white badge bg-danger">1</span></code>
                     <p class="small"><i>- Minecraft là một trò chơi điện tử độc lập trong một thế giới mở với phong cách sandbox, được phát hành vào năm 2009 bởi lập trình viên người Thụy Điển Markus "Notch" Persson và sau đó được phát triển và phát hành bởi Mojang Studio. Khả năng sáng tạo và xây dựng Minecraft cho phép người chơi xây dựng các công trình bằng cách kết hợp các khối lập phương kết cấu trong một thế giới 3D. Các hoạt động khác trong game bao gồm tìm kiếm, thu thập tài nguyên, chế tạo và chiến đấu. <a href="https://vi.wikipedia.org/wiki/Minecraft" target="_blank"><i class="fas fa-external-link"></i></a></i></p>
                 </div>
@@ -101,11 +105,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
-                    <code><i class="fas fa-server"></i>. <b>Máy chủ Grassmc.com</b>&emsp;<span class="text-white badge bg-success">4</span></code>
-                    <p class="small"><i>- Server minecraft này đã trải qua hơn 10 season, mặc dù chỉ là 1 server con trong 1 rừng server minecraft Việt Nam. Nhưng đã thu lại những thành tựu đáng nể. Máy chủ chính là skyblock và rễ là các server, cũng từng có vài lần update ra minigame nhưng đã thất bại. Hiện tại mình cần tuyển 1 số lượng admin (configer) từ 3-4 bạn để cùng nhau xây dựng 1 server lớn mạnh, lợi ích chia đều. Chi tiết hãy xem hướng dẫn trên.</i></p>
+                    <div class="col-lg-12">
+                        <code><i class="fas fa-server"></i>. <b>Máy chủ Grassmc.com</b>&emsp;<span class="text-white badge bg-success">4</span></code>
+                        <p class="small"><i>- Server minecraft này đã trải qua hơn 10 season, mặc dù chỉ là 1 server con trong 1 rừng server minecraft Việt Nam. Nhưng đã thu lại những thành tựu đáng nể. Máy chủ chính là skyblock và rễ là các server, cũng từng có vài lần update ra minigame nhưng đã thất bại. Hiện tại mình cần tuyển 1 số lượng admin (configer) từ 3-4 bạn để cùng nhau xây dựng 1 server lớn mạnh, lợi ích chia đều. Chi tiết hãy xem hướng dẫn trên.</i></p>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
