@@ -4,7 +4,7 @@
         session_start();
 
         if(isset($_SESSION['username'])){
-            include '../com.nhinguyenv3.database/connectDB.php';
+            include '../database/connectDB.php';
             $content = $_POST['content'];
             $username = $_SESSION['username'];
             $sql = "insert into comments (username, comment) values ('$username','$content')";

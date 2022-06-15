@@ -1,5 +1,5 @@
 <?php 
-    include '../../com.nhinguyenv3.database/connectDB.php';
+    include '../../database/connectDB.php';
     $sql = "select * from comments";
     $result = mysqli_query($con, $sql);
     $json = mysqli_fetch_all ($result, MYSQLI_ASSOC);

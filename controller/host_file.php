@@ -2,7 +2,7 @@
     if(isset($_POST['host_f'])){
         session_start();
         if(isset($_SESSION['username'])){
-            include '../com.nhinguyenv3.database/connectDB.php';
+            include '../database/connectDB.php';
             $file_id = rand(1, 2147483648);
             $username = $_SESSION['username'];
             $type_f = $_POST['type_f'];

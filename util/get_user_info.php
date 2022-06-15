@@ -8,7 +8,7 @@
     $age = "";
     $sex = "";
     function get_user_info($username){
-        include '../../com.nhinguyenv3.database/connectDB.php';
+        include '../../database/connectDB.php';
         $sql = "select * from infos a join users b on a.username = b.username where a.username = '$username'";
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);

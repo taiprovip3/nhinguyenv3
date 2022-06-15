@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST['login'])){
 
-        include '../com.nhinguyenv3.database/connectDB.php';
+        include '../database/connectDB.php';
 
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);

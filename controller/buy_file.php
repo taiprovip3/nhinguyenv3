@@ -13,7 +13,7 @@
                 header('Location: ../resources/templates/shopfile.php?response=nolog');
             } else{//TH có đăng nhập
 
-                include '../com.nhinguyenv3.database/connectDB.php';
+                include '../database/connectDB.php';
                 $author = $_POST['author'];
                 $username = $_SESSION['username'];
                 if($author == $username){//TH tự mua file chính mình

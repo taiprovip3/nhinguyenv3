@@ -1,6 +1,6 @@
 <?php
     function get_user_credit($username){
-        include '../../com.nhinguyenv3.database/connectDB.php';
+        include '../../database/connectDB.php';
         $default = 0;
         $sql = "select credit from balances where username = '$username'";
         $result = mysqli_query($con, $sql);
@@ -12,7 +12,7 @@
         return $default;
     }
     function get_user_credit_by_index($username){
-        include './com.nhinguyenv3.database/connectDB.php';
+        include './database/connectDB.php';
         $default = 0;
         $sql = "select credit from balances where username = '$username'";
         $result = mysqli_query($con, $sql);

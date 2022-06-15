@@ -1,6 +1,6 @@
 <?php 
 if(isset($_POST['register'])){
-    include '../com.nhinguyenv3.database/connectDB.php';
+    include '../database/connectDB.php';
 
     $username = $_POST['username'];
     $password = $_POST['password'];

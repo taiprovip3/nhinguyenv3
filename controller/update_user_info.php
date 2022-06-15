@@ -1,7 +1,7 @@
 <?php 
     if(isset($_POST['update'])){
 
-        include '../com.nhinguyenv3.database/connectDB.php';
+        include '../database/connectDB.php';
 
         $id = str_replace("#",'',$_POST['id']);
         $email = trim($_POST['email']);

@@ -31,12 +31,12 @@
                 <?php
                     $credit = 0;
                     if(isset($_SESSION['username'])){
-                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        include '../../util/get_user_credit.php';
                         $credit = get_user_credit($_SESSION['username']);
                         echo '
                         <a href="./individual.php" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
                         <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
-                        <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
+                        <a href="../../util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     } else
                         echo '
@@ -90,7 +90,7 @@
     <!-- Comment -->
     <div class="row">
         <div class="col-lg-12">
-        <form action="../../com.nhinguyenv3.controller/comment.php" method="POST">
+        <form action="../../controller/comment.php" method="POST">
             <div class="mb-3 mt-3 rounded">
                 <textarea class="form-control" rows="4" name="content" placeholder="Hãy viết lên suy nghĩ của bạn cho chúng tôi biết!" maxlength="255" required></textarea>
             </div>
@@ -111,7 +111,7 @@
                         <p><i class="fas fa-pen-square"></i> Mọi công dân đều có quyền tự do ngôn luận.</p>
                     </div>
                 </div>
-                <?php include '../../com.nhinguyenv3.controller/load_comment.php'; ?>
+                <?php include '../../controller/load_comment.php'; ?>
             </div>
         </div>
     </div>

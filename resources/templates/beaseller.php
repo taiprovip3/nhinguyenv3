@@ -31,12 +31,12 @@
                 <?php
                     $credit = 0;
                     if(isset($_SESSION['username'])){
-                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        include '../../util/get_user_credit.php';
                         $credit = get_user_credit($_SESSION['username']);
                         echo '
                         <a href="./individual.php" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
                         <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
-                        <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
+                        <a href="../../util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     } else
                         echo '
@@ -91,7 +91,7 @@
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10 p-4 text-white rounded">
-            <form action="../../com.nhinguyenv3.controller/host_file.php" method="post">
+            <form action="../../controller/host_file.php" method="post">
             <div class="form-group">
                 <label for="type_f" class="text-dark">Chọn loại</label>
                 <select class="form-control" name="type_f" id="type_f">

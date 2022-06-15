@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['censor'])){
-    include '../com.nhinguyenv3.database/connectDB.php';
+    include '../database/connectDB.php';
     $id = $_POST['id'];
     $sql = "update files set censored = 1 where id = '$id'";
     //Thêm lệnh gửi mail duyệt cho author
@@ -12,7 +12,7 @@ if(isset($_POST['censor'])){
     $con -> close();
 } else{
     if(isset($_POST['delete'])){
-        include '../com.nhinguyenv3.database/connectDB.php';
+        include '../database/connectDB.php';
         $id = $_POST['id'];
         $sql = "delete from files where id = '$id'";
         //Thêm lệnh gửi mail xoá của author nữa nha

@@ -1,5 +1,5 @@
 <?php
-    include '../../com.nhinguyenv3.database/connectDB.php';
+    include '../../database/connectDB.php';
     $username = $_SESSION['username'];
     $sql = "select * from user_files a join files b on a.file_id = b.id where a.buyer = '$username' order by b.type";
     $result = mysqli_query($con, $sql);

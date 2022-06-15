@@ -84,7 +84,7 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 mt-5">
-            <form action="../../com.nhinguyenv3.controller/login.php" method="POST" style="display: inline;">
+            <form action="../../controller/login.php" method="POST" style="display: inline;">
             <div class="form-floating mb-3 mt-3">
                 <input type="text" class="form-control" id="username" placeholder="Nhập vào Tên đăng nhập" name="username" required>
                 <label for="username">Tên đăng nhập <span class="text-danger">(*)</span></label>

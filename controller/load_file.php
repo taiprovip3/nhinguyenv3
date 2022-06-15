@@ -1,5 +1,5 @@
 <?php
-    include '../../com.nhinguyenv3.database/connectDB.php';
+    include '../../database/connectDB.php';
     $sql = "select * from files where type = 0 and censored = 1";
     $result = mysqli_query($con, $sql);
     $json = mysqli_fetch_all ($result, MYSQLI_ASSOC);
@@ -17,7 +17,7 @@
         $key_img = array_rand($arr_img);
         echo '
             <div class="col-lg-3 p-3 border m-1 flex-fill text-dark rounded">
-                <form method="POST" action="../../com.nhinguyenv3.controller/buy_file.php">
+                <form method="POST" action="../../controller/buy_file.php">
                 <input type="hidden" name="id" value="'.$row["id"].'" />
                 <input type="hidden" name="author" value="'.$row["author"].'" />
                 <input type="hidden" name="price" value="'.$row["price"].'" />

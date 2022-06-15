@@ -31,12 +31,12 @@
                 <?php
                     $credit = 0;
                     if(isset($_SESSION['username'])){
-                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        include '../../util/get_user_credit.php';
                         $credit = get_user_credit($_SESSION['username']);
                         echo '
                         <a href="#" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
                         <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
-                        <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
+                        <a href="../../util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     } else
                         header('Location: ../../index.php');
@@ -88,10 +88,10 @@
             <div class="row">
                 <div class="col-lg-12 p-3" id="info">
                     <?php
-                    include '../../com.nhinguyenv3.util/get_user_info.php';
+                    include '../../util/get_user_info.php';
                     get_user_info($_SESSION["username"]);
                     ?>
-                    <form action="../../com.nhinguyenv3.controller/update_user_info.php" method="post">
+                    <form action="../../controller/update_user_info.php" method="post">
                     <div class="form-group">
                         <label for="username">Tên đăng nhập <span class="text-danger">*</span></label>
                         <input type="text" name="username" id="username" readonly class="form-control" value="<?php echo $_SESSION['username']; ?>">
@@ -165,10 +165,10 @@
                     <div class="col-lg-2 bg-success text-center rounded m-1" id="inv">
                         <div>
                             <img src="../img/coin.png" alt="CREDIT" width="50%"><br>
-                            <a href="./recharge.php" class="text-reset"><b><?php include '../../com.nhinguyenv3.util/get_user_credit.php'; echo get_user_credit($_SESSION['username']); ?> credit</b></a>
+                            <a href="./recharge.php" class="text-reset"><b><?php include '../../util/get_user_credit.php'; echo get_user_credit($_SESSION['username']); ?> credit</b></a>
                         </div>
                     </div>
-                    <?php include '../../com.nhinguyenv3.controller/load_user_file.php'; ?>
+                    <?php include '../../controller/load_user_file.php'; ?>
                 </div>
             </div>
             <div class="row">
@@ -191,13 +191,13 @@
                                 <td><a href="#" data-bs-toggle="popover" title="Nội dung thư" data-bs-content="Bạn đã là thành viên của nhinguyen.rf.gd. Các nội dung duyệt hoặc lời nhắn từ admin sẽ phản hồi về đây cho bạn."><i class="fas fa-envelope"></i>Mở</a></td>
                                 <td>12/06/2022 11:50:111</td>
                                 <td>
-                                    <form action="../../com.nhinguyenv3.controller/delete_mail.php" method="post">
+                                    <form action="../../controller/delete_mail.php" method="post">
                                         <input type="hidden" name="id" value="0">
                                         <input type="submit" value="Xoá" name="delete" class="btn btn-danger btn-sm">
                                     </form>
                                 </td>
                             </tr>
-                            <?php include '../../com.nhinguyenv3.controller/load_user_mbox.php'; ?>
+                            <?php include '../../controller/load_user_mbox.php'; ?>
                         </tbody>
                     </table>
                 </div>
@@ -213,7 +213,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php include '../../com.nhinguyenv3.controller/load_user_his.php'; ?>
+                            <?php include '../../controller/load_user_his.php'; ?>
                         </tbody>
                     </table>
                 </div>

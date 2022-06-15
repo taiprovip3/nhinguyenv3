@@ -38,12 +38,12 @@
                 <?php
                     $credit = 0;
                     if(isset($_SESSION['username'])){
-                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        include '../../util/get_user_credit.php';
                         $credit = get_user_credit($_SESSION['username']);
                         echo '
                         <a href="./individual.php" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
                         <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
-                        <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
+                        <a href="../../util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     }
                 ?>
@@ -85,7 +85,7 @@
     <!-- Log Manager -->
     <div class="row">
         <div class="col-lg-12 mt-4">
-            <form action="../../com.nhinguyenv3.admin_controller/admin_log_manager.php" method="post">
+            <form action="../../admin_controller/admin_log_manager.php" method="post">
                 <input type="submit" value="Reset all logs" class="btn btn-outline-danger btn-lg" name="delete-all-log">
             </form>
             <table class="table table-hover">
@@ -100,7 +100,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php include '../../com.nhinguyenv3.admin_controller/load_log.php'; ?>
+                    <?php include '../../admin_controller/load_log.php'; ?>
                 </tbody>
             </table>
         </div>

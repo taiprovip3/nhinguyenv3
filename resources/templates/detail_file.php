@@ -30,12 +30,12 @@
                 <?php
                     $credit = 0;
                     if(isset($_SESSION['username'])){
-                        include '../../com.nhinguyenv3.util/get_user_credit.php';
+                        include '../../util/get_user_credit.php';
                         $credit = get_user_credit($_SESSION['username']);
                         echo '
                         <a href="./individual.php" class="text-reset"><i class="fas fa-child fa-3x"></i></a><br>
                         <a href="../../tst/index.php" class="small text-warning">'.$credit.' credit</a><br>
-                        <a href="../../com.nhinguyenv3.util/logout.php" class="text-reset">Đăng xuất</a>
+                        <a href="../../util/logout.php" class="text-reset">Đăng xuất</a>
                         ';
                     } else
                         echo '
@@ -89,7 +89,7 @@
     <!-- Detail file -->
     <div class="row">
         <div class="col-lg-12 mt-4">
-            <?php include '../../com.nhinguyenv3.controller/load_detail_file.php'; ?>
+            <?php include '../../controller/load_detail_file.php'; ?>
         </div>
     </div>
 </div>

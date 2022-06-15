@@ -1,5 +1,5 @@
 <?php 
-    include '../../com.nhinguyenv3.database/connectDB.php';
+    include '../../database/connectDB.php';
     $username = $_SESSION['username'];
     $sql = "select * from logs where username = '$username'";
     $result = mysqli_query($con, $sql);

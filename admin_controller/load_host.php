@@ -1,5 +1,5 @@
 <?php
-include '../../com.nhinguyenv3.database/connectDB.php';
+include '../../database/connectDB.php';
 $sql = "select * from files";
 $result = mysqli_query($con, $sql);
 $json = mysqli_fetch_all ($result, MYSQLI_ASSOC);
@@ -25,7 +25,7 @@ for ($i = 0; $i < $countrow; $i++){
         <td>'.$row["author"].'</td>
         <td>'.$row["type"].'</td>
         <td>
-            <form action="../../com.nhinguyenv3.admin_controller/admin_host_manager.php" method="POST">
+            <form action="../../admin_controller/admin_host_manager.php" method="POST">
             <input type="hidden" name="id" value="'.$row["id"].'">
             '.$isShowBtnCensored.'
             <input type="submit" value="Xoá" name="delete" class="btn btn-danger btn-sm">
